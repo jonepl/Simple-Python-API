@@ -49,7 +49,7 @@ def test_authorized_api_route(client):
 def test_unauthorized_api_route(client):
     response = client.get('/api', headers={"x-api-key" : "Bad-key"}) 
 
-    expectedBody = bytes('<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">\n<title>401 Unauthorized</title>\n<h1>Unauthorized</h1>\n<p>The server could not verify that you are authorized to access the URL requested. You either supplied the wrong credentials (e.g. a bad password), or your browser doesn\'t understand how to supply the credentials required.</p>\n', 'utf-8')
+    expectedBody = bytes('<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">\n<title>401 Unauthorized</title>\n<h1>Unauthorized</h1>\n<p>The server could not verify that you are authorized to access the URL requested.  You either supplied the wrong credentials (e.g. a bad password), or your browser doesn\'t understand how to supply the credentials required.</p>\n', 'utf-8')
     expectedStatusCode = 401
     actualBody = response.get_data()
     actualStatusCode = response.status_code
@@ -74,7 +74,7 @@ def test_slackRoutes_unauthorized_slackCollection(client):
 
     response = client.get('/api/slack', headers={"x-api-key" : "Bad-key"})
     
-    expectedBody = bytes('<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">\n<title>401 Unauthorized</title>\n<h1>Unauthorized</h1>\n<p>The server could not verify that you are authorized to access the URL requested. You either supplied the wrong credentials (e.g. a bad password), or your browser doesn\'t understand how to supply the credentials required.</p>\n', 'utf-8')
+    expectedBody = bytes('<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">\n<title>401 Unauthorized</title>\n<h1>Unauthorized</h1>\n<p>The server could not verify that you are authorized to access the URL requested.  You either supplied the wrong credentials (e.g. a bad password), or your browser doesn\'t understand how to supply the credentials required.</p>\n', 'utf-8')
     expectedStatusCode = 401
     actualBody = response.get_data()
     actualStatusCode = response.status_code
@@ -110,7 +110,7 @@ def test_slackRoutes_unauthorized_slackResource(client):
     
     response = client.get('/api/slack/intro', headers={"x-api-key" : "Bad-key"})
     
-    expectedBody = bytes('<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">\n<title>401 Unauthorized</title>\n<h1>Unauthorized</h1>\n<p>The server could not verify that you are authorized to access the URL requested. You either supplied the wrong credentials (e.g. a bad password), or your browser doesn\'t understand how to supply the credentials required.</p>\n', 'utf-8')
+    expectedBody = bytes('<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">\n<title>401 Unauthorized</title>\n<h1>Unauthorized</h1>\n<p>The server could not verify that you are authorized to access the URL requested.  You either supplied the wrong credentials (e.g. a bad password), or your browser doesn\'t understand how to supply the credentials required.</p>\n', 'utf-8')
     expectedStatusCode = 401
     actualBody = response.get_data()
     actualStatusCode = response.status_code
